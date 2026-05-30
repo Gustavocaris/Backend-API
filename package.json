@@ -1,6 +1,7 @@
 {
   "name": "backend-api",
   "version": "1.0.0",
+  "type": "module",
   "description": "```markdown\r # 🚀 Projeto API REST - Estudos de Backend",
   "main": "index.js",
   "scripts": {
