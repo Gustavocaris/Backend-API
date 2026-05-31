@@ -2,13 +2,21 @@ import express from 'express';
 
 const app = express();
 
+app.use(express.json());
+
 const users = []
 
 app.post('/users', (req, res) => {
-    const user = req.body;
-    users.push(user);
+    users.push(req.body);
+
+    res.status(201).json({ 
+        message: 'User created successfully' 
+        user: req.body
+    });
+    
+
     res.send('User created');
-}
+})
 
 app.get('/users', (req, res) => {
     res.send('List of users');
