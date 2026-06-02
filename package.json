@@ -20,5 +20,9 @@
   "homepage": "https://github.com/Gustavocaris/Backend-API#readme",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "prisma": "6.19"
   }
 }
