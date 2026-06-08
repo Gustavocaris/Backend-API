@@ -2,3 +2,5 @@ Install node.js
 
 install npm i express
 
+ter conta no mongoDB e instalar o prisma e prisma client
+

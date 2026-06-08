@@ -1,13 +1,24 @@
 import express from 'express';
+import pkg from '@prisma/client';
+
+const { PrismaClient } = pkg;
+const prisma = new PrismaClient();
 
 const app = express();
 
 app.use(express.json());
 
-const users = []
 
-app.post('/users', (req, res) => {
+app.post('/users', async (req, res) => {
     users.push(req.body);
+
+    await prisma.user.create({
+        data: {
+            name: req.body.name,
+            age: req.body.age,
+            email: req.body.email
+        }
+    })
 
     res.status(201).json({ 
         message: 'User created successfully',
@@ -16,9 +27,16 @@ app.post('/users', (req, res) => {
     
 });
 
-app.get('/users', (req, res) => {
-    res.send('List of users');
+app.get('/users', async (req, res) => {
+
+    const users = await prisma.user.findMany();
+
+    res.send(users);
 })
+
+
+
+
 
 app.listen(3000)
 
